@@ -4,8 +4,6 @@ import agh.edu.pl.rogus.constants.Constants;
 
 public abstract class FizzBuzzAbstract implements FizzBuzzStrategy {
 
-    protected String name;
-
     protected boolean isFizz(int number) {
         return number % Constants.THREE == 0;
     }

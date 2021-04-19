@@ -3,18 +3,16 @@ package agh.edu.pl.rogus.strategies.recursion;
 import agh.edu.pl.rogus.constants.Constants;
 import agh.edu.pl.rogus.strategies.FizzBuzzAbstract;
 
+import javafx.scene.control.TextArea;
+
 public class RecursionStrategy extends FizzBuzzAbstract {
 
-    public RecursionStrategy(String name) {
-        this.name = name;
-        System.out.println(name);
-    }
-
     @Override
-    public void print(int from, int to) {
-        if (isFizz(from)) System.out.print(Constants.FIZZ);
-        if (isBuzz(from))  System.out.println(Constants.BUZZ);
-        if (isOther(from)) System.out.println(from);
-        if (from < to) print(++from, to);
+    public void print(int from, int to, TextArea textArea) {
+        if (isFizz(from)) textArea.appendText(Constants.FIZZ);
+        if (isBuzz(from))  textArea.appendText(Constants.BUZZ);
+        if (isOther(from)) textArea.appendText(String.valueOf(from));
+        textArea.appendText("\n");
+        if (from < to) print(++from, to, textArea);
     }
 }
