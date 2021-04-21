@@ -2,6 +2,7 @@ package agh.edu.pl.rogus.view;
 
 import agh.edu.pl.rogus.strategies.FizzBuzzStrategy;
 import agh.edu.pl.rogus.strategies.recursion.RecursionStrategy;
+import agh.edu.pl.rogus.strategies.simple.SimpleStrategy;
 import agh.edu.pl.rogus.strategies.streams.ForEachStrategy;
 import agh.edu.pl.rogus.strategies.streams.MapStrategy;
 import javafx.event.ActionEvent;
@@ -38,6 +39,9 @@ public class fizzBuzzController {
 
     @FXML
     private Button recursionStrategyButton;
+
+    @FXML
+    private Button simpleStrategyButton;
 
     @FXML
     private Button forEachStrategyButton;
@@ -96,6 +100,12 @@ public class fizzBuzzController {
     public void handleRecursionStrategyButton(ActionEvent actionEvent) {
         fizzBuzzStrategy = new RecursionStrategy();
         updateStrategyLabel();
+    }
+
+    @FXML
+    public void handleSimpleStrategyButton(ActionEvent actionEvent) {
+        fizzBuzzStrategy = new SimpleStrategy();
+        updateStrategyLabel();;
     }
 
     @FXML
