@@ -85,12 +85,8 @@ public class fizzBuzzController {
 
     @FXML
     public void handleFizzBuzz() {
-        try {
-            textArea.clear();
-            fizzBuzzStrategy.print(getFieldValue(fromField), getFieldValue(toField), textArea);
-        } catch (NullPointerException e) {
-            // noStrategy.visibleProperty().set(true);
-        }
+        textArea.clear();
+        fizzBuzzStrategy.print(getFieldValue(fromField), getFieldValue(toField), textArea);
     }
 
     private int getFieldValue(TextField field) {
