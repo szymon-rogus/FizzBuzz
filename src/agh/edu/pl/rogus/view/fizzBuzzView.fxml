@@ -8,23 +8,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agh.edu.pl.rogus.view.fizzBuzzController">
-   <children>
-      <ListView prefHeight="600.0" prefWidth="200.0" />
-      <Button fx:id="recursionStrategyButton" mnemonicParsing="false" onAction="#handleRecursionStrategyButton" prefHeight="50.0" prefWidth="200.0" text="RecursionStrategy" />
-      <Button fx:id="simpleStrategyButton" layoutY="50.0" mnemonicParsing="false" onAction="#handleSimpleStrategyButton" prefHeight="50.0" prefWidth="200.0" text="SimpleStrategy" />
-      <Button fx:id="forEachStrategyButton" layoutY="100.0" mnemonicParsing="false" onAction="#handleForEachStrategyButton" prefHeight="50.0" prefWidth="200.0" text="ForEachStrategy" />
-      <Button fx:id="mapStrategyButton" layoutY="150.0" mnemonicParsing="false" onAction="#handleMapStrategyButton" prefHeight="50.0" prefWidth="200.0" text="MapStrategy" />
-      <TextArea fx:id="textArea" editable="false" layoutX="219.0" layoutY="214.0" prefHeight="371.0" prefWidth="562.0" />
-      <Button fx:id="fizzBuzzButton" layoutX="667.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleFizzBuzz" text="FizzBuzz!" />
-      <TextField fx:id="fromField" layoutX="278.0" layoutY="88.0" prefHeight="24.0" prefWidth="145.0" />
-      <TextField fx:id="toField" layoutX="278.0" layoutY="150.0" prefHeight="24.0" prefWidth="145.0" />
-      <Label layoutX="219.0" layoutY="88.0" prefHeight="24.0" prefWidth="49.0" text="From" />
-      <Label layoutX="219.0" layoutY="150.0" prefHeight="24.0" prefWidth="41.0" text="To" />
-      <Label layoutX="219.0" layoutY="34.0" prefHeight="16.0" prefWidth="49.0" text="Strategy" />
-      <TextField fx:id="strategyNameField" editable="false" layoutX="278.0" layoutY="30.0" prefHeight="10.0" prefWidth="145.0" />
-      <Text fx:id="noStrategy" fill="#ff0101" layoutX="278.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No strategy choosen" wrappingWidth="145.0" />
-      <Text fx:id="noFromValue" fill="RED" layoutX="278.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose starting value" wrappingWidth="136.28271484375" />
-      <Text fx:id="noToValue" fill="RED" layoutX="278.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose ending value" wrappingWidth="136.28271484375" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="agh.edu.pl.rogus.view.fizzBuzzController">
+   <ListView prefHeight="600.0" prefWidth="200.0">
+      <Button fx:id="recursionStrategyButton" mnemonicParsing="false" onAction="#handleRecursionStrategyButton"
+              prefHeight="50.0" prefWidth="180.0" text="RecursionStrategy"/>
+      <Button fx:id="simpleStrategyButton" layoutY="50.0" mnemonicParsing="false" onAction="#handleSimpleStrategyButton"
+              prefHeight="50.0" prefWidth="180.0" text="SimpleStrategy"/>
+      <Button fx:id="forEachStrategyButton" layoutY="100.0" mnemonicParsing="false"
+              onAction="#handleForEachStrategyButton" prefHeight="50.0" prefWidth="180.0" text="ForEachStrategy"/>
+      <Button fx:id="mapStrategyButton" layoutY="150.0" mnemonicParsing="false" onAction="#handleMapStrategyButton"
+              prefHeight="50.0" prefWidth="180.0" text="MapStrategy"/>
+   </ListView>
+   <TextArea fx:id="textArea" editable="false" layoutX="219.0" layoutY="214.0" prefHeight="371.0" prefWidth="562.0"/>
+   <Button fx:id="fizzBuzzButton" layoutX="500.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleFizzBuzz"
+           text="FizzBuzz!"/>
+   <TextField fx:id="fromField" layoutX="278.0" layoutY="88.0" prefHeight="24.0" prefWidth="145.0"/>
+   <TextField fx:id="toField" layoutX="278.0" layoutY="150.0" prefHeight="24.0" prefWidth="145.0"/>
+   <Label layoutX="219.0" layoutY="88.0" prefHeight="24.0" prefWidth="49.0" text="From"/>
+   <Label layoutX="219.0" layoutY="150.0" prefHeight="24.0" prefWidth="41.0" text="To"/>
+   <Label layoutX="219.0" layoutY="34.0" prefHeight="16.0" prefWidth="49.0" text="Strategy"/>
+   <Text fx:id="noFromValue" fill="RED" layoutX="278.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Choose starting value" wrappingWidth="136.28271484375"/>
+   <Text fx:id="noToValue" fill="RED" layoutX="278.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Choose ending value" wrappingWidth="136.28271484375"/>
+   <Button fx:id="clearButton" layoutX="630.0" layoutY="147.0" mnemonicParsing="false" onAction="#clearTextArea"
+           prefHeight="30.0" prefWidth="108.0" text="ClearFizzBuzz"/>
+   <Text fx:id="strategyNameField" layoutX="278.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         wrappingWidth="145.0"/>
 </AnchorPane>

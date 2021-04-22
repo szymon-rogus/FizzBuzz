@@ -14,49 +14,48 @@ import javafx.scene.text.Text;
 
 public class fizzBuzzController {
 
+    @FXML
     private FizzBuzzStrategy fizzBuzzStrategy;
 
     @FXML
-    private TextField strategyNameField;
+    public Button recursionStrategyButton;
 
     @FXML
-    private Text noStrategy;
+    public Button simpleStrategyButton;
 
     @FXML
-    private Text noFromValue;
+    public Button forEachStrategyButton;
 
     @FXML
-    private Text noToValue;
+    public Button mapStrategyButton;
+
+    @FXML
+    private Text strategyNameField;
 
     @FXML
     private TextField fromField;
 
     @FXML
+    private Text noFromValue;
+
+    @FXML
     private TextField toField;
+
+    @FXML
+    private Text noToValue;
 
     @FXML
     private Button fizzBuzzButton;
 
     @FXML
-    private Button recursionStrategyButton;
-
-    @FXML
-    private Button simpleStrategyButton;
-
-    @FXML
-    private Button forEachStrategyButton;
-
-    @FXML
-    private Button mapStrategyButton;
+    private Button clearButton;
 
     @FXML
     private TextArea textArea;
 
     public void initialize() {
 
-        strategyNameField.textProperty().addListener((observable, oldValue, newValue) -> {
-            noStrategy.visibleProperty().set(false);
-        });
+        handleSimpleStrategyButton();
 
         fromField.textProperty().addListener((observable, oldValue, newValue) -> {
             parseIntegerField(noFromValue, newValue);
@@ -67,9 +66,11 @@ public class fizzBuzzController {
         });
 
         fizzBuzzButton.disableProperty().bind(
-                noStrategy.visibleProperty()
-                        .or(noFromValue.visibleProperty())
-                        .or(noToValue.visibleProperty())
+                noFromValue.visibleProperty().or(noToValue.visibleProperty())
+        );
+
+        clearButton.disableProperty().bind(
+                textArea.textProperty().isEmpty()
         );
     }
 
@@ -83,12 +84,12 @@ public class fizzBuzzController {
     }
 
     @FXML
-    public void handleFizzBuzz(ActionEvent actionEvent) {
+    public void handleFizzBuzz() {
         try {
             textArea.clear();
             fizzBuzzStrategy.print(getFieldValue(fromField), getFieldValue(toField), textArea);
         } catch (NullPointerException e) {
-            noStrategy.visibleProperty().set(true);
+            // noStrategy.visibleProperty().set(true);
         }
     }
 
@@ -97,30 +98,35 @@ public class fizzBuzzController {
     }
 
     @FXML
-    public void handleRecursionStrategyButton(ActionEvent actionEvent) {
+    public void handleRecursionStrategyButton() {
         fizzBuzzStrategy = new RecursionStrategy();
         updateStrategyLabel();
     }
 
     @FXML
-    public void handleSimpleStrategyButton(ActionEvent actionEvent) {
+    public void handleSimpleStrategyButton() {
         fizzBuzzStrategy = new SimpleStrategy();
-        updateStrategyLabel();;
+        updateStrategyLabel();
     }
 
     @FXML
-    private void handleForEachStrategyButton(ActionEvent actionEvent) {
+    private void handleForEachStrategyButton() {
         fizzBuzzStrategy = new ForEachStrategy();
         updateStrategyLabel();
     }
 
     @FXML
-    private void handleMapStrategyButton(ActionEvent actionEvent) {
+    private void handleMapStrategyButton() {
         fizzBuzzStrategy = new MapStrategy();
         updateStrategyLabel();
     }
 
     private void updateStrategyLabel() {
         strategyNameField.setText(fizzBuzzStrategy.getClass().getSimpleName());
+    }
+
+    @FXML
+    private void clearTextArea() {
+        textArea.clear();
     }
 }
