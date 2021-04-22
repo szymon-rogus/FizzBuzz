@@ -1,4 +1,4 @@
 # FizzBuzz
 FizzBuzz on strategies
 
-[]!(/images/fizzEmpty.png)
+![](/images/fizzEmpty.png)
