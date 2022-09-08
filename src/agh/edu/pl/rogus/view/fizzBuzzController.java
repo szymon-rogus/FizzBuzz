@@ -5,7 +5,6 @@ import agh.edu.pl.rogus.strategies.recursion.RecursionStrategy;
 import agh.edu.pl.rogus.strategies.simple.SimpleStrategy;
 import agh.edu.pl.rogus.strategies.streams.ForEachStrategy;
 import agh.edu.pl.rogus.strategies.streams.MapStrategy;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -57,21 +56,13 @@ public class fizzBuzzController {
 
         handleSimpleStrategyButton();
 
-        fromField.textProperty().addListener((observable, oldValue, newValue) -> {
-            parseIntegerField(noFromValue, newValue);
-        });
+        fromField.textProperty().addListener((observable, oldValue, newValue) -> parseIntegerField(noFromValue, newValue));
 
-        toField.textProperty().addListener((observable, oldValue, newValue) -> {
-            parseIntegerField(noToValue, newValue);
-        });
+        toField.textProperty().addListener((observable, oldValue, newValue) -> parseIntegerField(noToValue, newValue));
 
-        fizzBuzzButton.disableProperty().bind(
-                noFromValue.visibleProperty().or(noToValue.visibleProperty())
-        );
+        fizzBuzzButton.disableProperty().bind(noFromValue.visibleProperty().or(noToValue.visibleProperty()));
 
-        clearButton.disableProperty().bind(
-                textArea.textProperty().isEmpty()
-        );
+        clearButton.disableProperty().bind(textArea.textProperty().isEmpty());
     }
 
     private void parseIntegerField(Text text, String newValue) {

@@ -4,5 +4,5 @@ import javafx.scene.control.TextArea;
 
 public interface FizzBuzzStrategy {
 
-    public void print(int from, int to, TextArea textArea);
+    void print(int from, int to, TextArea textArea);
 }

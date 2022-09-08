@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(Constants.SOURCE_VIEW));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Constants.SOURCE_VIEW)));
         stage.setTitle(Constants.TITLE);
         stage.setScene(new Scene(root, Constants.WIDTH, Constants.HEIGHT));
         stage.show();
